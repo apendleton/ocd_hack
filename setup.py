@@ -3,7 +3,7 @@ from setuptools.command.install import install
 
 class CustomInstall(install):
     def run(self):
-        install.run(self)
+        self.do_egg_install()
         
         import pip, os
         ocdd = [dist for dist in pip.get_installed_distributions() if dist.project_name == 'opencivicdata-django'][0]
